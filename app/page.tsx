@@ -19,25 +19,22 @@ export default function Home() {
             className="mt-4 w-80"
           />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            ante, lacinia ut sollicitudin id, sodales in eros. Mauris non augue
-            placerat, ornare magna id, volutpat risus. Curabitur maximus, libero
-            sit amet cursus finibus, sem purus pharetra velit, eget pretium
-            risus enim et arcu. Nullam consequat, leo id dictum ultricies,
-            libero quam semper libero, ac vulputate nunc ante eu ante. Aliquam
-            erat volutpat.
+            Emergent is a student-run collective at Brown University connecting
+            the next generation of tech entrepreneurs with industry leaders and
+            innovators.
           </p>
           <p>
-            Etiam euismod velit faucibus ultricies blandit. Maecenas accumsan
-            metus et eros placerat, eget ultricies lectus aliquet. Proin ut
-            tellus fermentum, scelerisque erat in, rutrum tellus. Class aptent
-            taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-            himenaeos. Cras eu magna dui. Vestibulum faucibus tortor sed pretium
-            maximus. Donec bibendum elit et mauris posuere feugiat.
+            We host events such as the annual{" "}
+            <strong>Emergent Conference</strong>, where we invite industry
+            leaders and innovators to speak to our community about new
+            developments in AI, technology, and entrepreneurship.
           </p>
         </section>
         <section className="space-y-4 border-t-2">
-          <h1 className="mt-4 text-2xl font-semibold uppercase">Our Members</h1>
+          <h1 className="mt-4 text-2xl font-semibold uppercase">Events</h1>
+        </section>
+        <section className="space-y-4 border-t-2">
+          <h1 className="mt-4 text-2xl font-semibold uppercase">Our Team</h1>
 
           {teamMembers.map((yearTeam, index) => (
             <details
@@ -55,13 +52,13 @@ export default function Home() {
               </summary>
 
               <div className="space-y-8">
-                <div className="grid sm:grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {yearTeam.members.map((member) => (
                     <div
                       key={member.name}
                       className="flex gap-4 items-center bg-gray-100"
                     >
-                      <div className="w-16 h-16 bg-gray-200 overflow-hidden relative">
+                      <div className="w-12 h-12 bg-gray-200 overflow-hidden relative">
                         <Image
                           src={member.image}
                           alt={member.name}
@@ -70,7 +67,7 @@ export default function Home() {
                           className="object-cover grayscale w-full h-full"
                         />
                       </div>
-                      <h3 className="font-semibold text-lg">{member.name}</h3>
+                      <h3 className="text-md">{member.name}</h3>
                     </div>
                   ))}
                 </div>

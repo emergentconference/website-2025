@@ -9,7 +9,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Emergent - AI Venture Conference at Brown University",
+  title: "Emergent | AI Venture Conference at Brown University",
   description:
     "Connecting the next generation of AI entrepreneurs with industry leaders and innovators at Brown University.",
 };
