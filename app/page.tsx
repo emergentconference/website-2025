@@ -1,14 +1,45 @@
-import gradient from "@/public/gradient.jpg";
 import logoWordmark from "@/public/logo-wordmark.png";
 import Image from "next/image";
 import { teamMembers } from "./data/members";
 
 export default function Home() {
   return (
-    <>
-      <div className="absolute inset-0 -z-10 opacity-30">
-        <Image src={gradient} alt="" fill className="object-cover" />
-      </div>
+    <div className="gradient-bg">
+      {/* SVG filter for glass distortion (hidden) */}
+      <svg style={{ display: "none" }}>
+        <filter id="glass-distortion">
+          <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves={2} result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale={77} />
+        </filter>
+      </svg>
+
+      {/* Glass navigation bar */}
+      <nav className="glass-nav w-full fixed left-0 top-0 z-50">
+        <div className="glass-filter"></div>
+        <div className="glass-overlay"></div>
+        <div className="glass-specular"></div>
+        <div className="glass-content">
+          <div className="nav-inner">
+            <div className="nav-left">
+              <a href="#" className="nav-item">For Speakers</a>
+              <a href="#" className="nav-item">For Sponsors</a>
+            </div>
+            <div className="nav-center">
+              <a href="#" className="nav-logo">
+                <Image src={logoWordmark} alt="Emergent logo" width={140} height={32} className="block" />
+              </a>
+            </div>
+            <div className="nav-right">
+              <a href="#events" className="nav-item">Events</a>
+              <a href="#about" className="nav-item">About</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      {/* Spacer to prevent content hiding under fixed nav */}
+      <div className="pt-30"></div>
+
+      {/* Removed overlay Image, now using CSS background */}
       <div className="space-y-12 px-4 mx-auto my-12 max-w-2xl border-black relative">
         <section className="space-y-4 border-t-4">
           <Image
@@ -76,6 +107,6 @@ export default function Home() {
           ))}
         </section>
       </div>
-    </>
+    </div>
   );
 }
