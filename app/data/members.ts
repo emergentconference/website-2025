@@ -4,13 +4,13 @@ export interface Member {
 }
 
 export interface YearTeam {
-  year: number;
+  year: string;
   members: Member[];
 }
 
 export const teamMembers: YearTeam[] = [
   {
-    year: 2026,
+    year: "2025–26",
     members: [
       {
         name: "Amil Agrawal",
@@ -59,31 +59,15 @@ export const teamMembers: YearTeam[] = [
     ],
   },
   {
-    year: 2025,
+    year: "Emergent Alums",
     members: [
-      {
-        name: "Hadley Carr",
-        image: "/team/hadley.jpg",
-      },
       {
         name: "Lindsay Gould",
         image: "/team/lindsay.jpg",
       },
       {
-        name: "Alex Mazansky",
-        image: "/team/alex.jpg",
-      },
-      {
-        name: "Sami Nourji",
-        image: "/team/sami.jpg",
-      },
-      {
         name: "Angie Osei-Ampadu",
         image: "/team/angie.jpg",
-      },
-      {
-        name: "A.J. Shulman",
-        image: "/team/aj.jpg",
       },
       {
         name: "Sam Shulman",

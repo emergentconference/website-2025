@@ -1,15 +1,11 @@
-import gradient from "@/public/gradient.jpg";
 import logoWordmark from "@/public/logo-wordmark.png";
 import Image from "next/image";
 import { teamMembers } from "./data/members";
 
 export default function Home() {
   return (
-    <>
-      <div className="absolute inset-0 -z-10 opacity-30">
-        <Image src={gradient} alt="" fill className="object-cover" />
-      </div>
-      <div className="space-y-12 px-4 mx-auto my-12 max-w-2xl border-black relative">
+    <div className="bg-[url('/gradient2.jpg')] bg-cover bg-center px-6 py-12 min-h-screen">
+      <div className="space-y-12 mx-auto max-w-2xl border-black relative">
         <section className="space-y-4 border-t-4">
           <Image
             src={logoWordmark}
@@ -30,9 +26,9 @@ export default function Home() {
             developments in AI, technology, and entrepreneurship.
           </p>
         </section>
-        <section className="space-y-4 border-t-2">
+        {/* <section className="space-y-4 border-t-2">
           <h1 className="mt-4 text-2xl font-semibold uppercase">Events</h1>
-        </section>
+        </section> */}
         <section className="space-y-4 border-t-2">
           <h1 className="mt-4 text-2xl font-semibold uppercase">Our Team</h1>
 
@@ -43,9 +39,7 @@ export default function Home() {
               className="group"
             >
               <summary className="border rounded-sm cursor-pointer text-xl font-medium px-1 py-2 mb-2 flex justify-between items-center">
-                <span className="text-xl">
-                  {yearTeam.year - 1}&ndash;{yearTeam.year.toString().slice(-2)}
-                </span>
+                <span className="text-xl">{yearTeam.year}</span>
                 <span className="text-lg transition-transform group-open:rotate-180">
                   ▲
                 </span>
@@ -76,6 +70,6 @@ export default function Home() {
           ))}
         </section>
       </div>
-    </>
+    </div>
   );
 }
