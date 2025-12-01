@@ -17,6 +17,7 @@ import imgVcPanel from "@/public/events/vcpanel/panel.jpeg";
 import logoWordmark from "@/public/logo-wordmark.png";
 import Image from "next/image";
 import { EventCard } from "./components/EventCard";
+import { Separator } from "./components/Separator";
 import { teamMembers } from "./data/members";
 
 export default function Home() {
@@ -25,29 +26,125 @@ export default function Home() {
       <div className="space-y-12 mx-auto max-w-2xl border-black relative">
         {/* About */}
         <section className="space-y-4 border-t-4">
-          <Image
-            src={logoWordmark}
-            alt="Emergent"
-            width={2141}
-            height={501}
-            className="mt-4 w-80"
-          />
+          <Image src={logoWordmark} alt="Emergent" className="mt-4 w-80" />
           <p>
-            Emergent is a student-run collective at Brown University connecting
-            the next generation of tech entrepreneurs with industry leaders and
-            innovators.
+            Emergent is a student-run collective at Brown University that{" "}
+            <b>empowers the next generation of tech entrepreneurs</b> by
+            connecting them with the people building today&rsquo;s most
+            innovative technologies.
           </p>
           <p>
-            We host events such as the annual{" "}
-            <strong>Emergent Conference</strong>, where we invite industry
-            leaders and innovators to speak to our community about new
-            developments in AI, technology, and entrepreneurship.
+            We host events such as the annual <b>Emergent Conference</b>, which
+            brings together industry leaders and entrepreneurs to speak to our
+            community about new developments in AI, technology, and startups.
+          </p>
+        </section>
+
+        {/* Impact */}
+        <section className="space-y-4 border-t-2">
+          <h1 className="mt-4 text-2xl font-semibold uppercase">
+            Why Emergent?
+          </h1>
+          {(() => {
+            const impactData = [
+              {
+                number: "500+",
+                description: "Attendees from Brown and beyond",
+              },
+              {
+                number: "25+",
+                description: "Industry speakers & Startups",
+              },
+              {
+                number: "$10,000",
+                description: "Awarded in Disrupt Challenge prizes",
+              },
+            ];
+            return (
+              <div className="flex flex-col sm:flex-row justify-between items-stretch gap-2 sm:gap-6 my-6">
+                {impactData.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 bg-white/80 rounded-lg p-2 sm:p-6 flex flex-col items-center shadow"
+                  >
+                    <span className="text-3xl sm:text-4xl font-bold text-blue-600">
+                      {item.number}
+                    </span>
+                    <span className="mt-2 text-lg text-gray-700 text-center">
+                      {item.description}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
+          <p>
+            We believe that the best way to shape the future of technology is to{" "}
+            <b>empower students today</b>—not just with knowledge, but with
+            direct access to the innovators, resources, and community they need
+            to <b>build it themselves</b>.
+          </p>
+          <p>
+            That&rsquo;s why, in just three months from January&ndash;April
+            2025, our eight-member team organized a brand-new{" "}
+            <b>300-person AI startup conference</b>: the first of its kind at
+            Brown. The conference connected students across the Northeast with
+            startup founders, venture capitalists, and AI research innovators.
+          </p>
+          <p>
+            The conference was a massive success: one panelist{" "}
+            <b>hired several attendees</b> to join her startup, two of whom{" "}
+            <b>dropped out of Yale</b> to work there full-time.
+          </p>
+          <p>
+            Since the conference, Emergent&rsquo;s impact has only grown as
+            we&rsquo;ve hosted <b>three more events</b> on startups and venture
+            capital, which were attended by over 200 students. Now, we&rsquo;re
+            gearing up for our biggest event yet:{" "}
+            <b>Emergent Conference 2026</b>, which will take place on
+            Brown&rsquo;s campus in April.
+          </p>
+
+          <Separator />
+
+          <h2 className="text-xl font-semibold tracking-tight">
+            Want to get involved?
+          </h2>
+          <p>
+            Speaking at or sponsoring Emergent events can help you reach a
+            community of <b>hundreds of students</b> at Brown and across the
+            Northeast who are excited about creating the future of technology.
+          </p>
+          <ul className="list-disc list-outside pl-8 space-y-4">
+            <li>
+              <b>Founders</b> have hired attendees at Emergent events to join
+              their startups
+            </li>
+            <li>
+              <b>VCs</b> have collaborated with us to host office hours, making
+              connections within Brown&rsquo;s startup ecosystem before founders
+              need to raise their first round
+            </li>
+            <li>
+              <b>Brand sponsors</b> have promoted their products and recruited
+              students at Emergent events
+            </li>
+          </ul>
+          <p>
+            We&rsquo;d love to collaborate. Drop us a line at{" "}
+            <a
+              href="mailto:info@emergentaiconference.com"
+              className="text-blue-600"
+            >
+              info@emergentaiconference.com
+            </a>
+            .
           </p>
         </section>
 
         {/* Events */}
         <section className="space-y-4 border-t-2">
-          <h1 className="mt-4 text-2xl font-semibold uppercase">Events</h1>
+          <h1 className="mt-4 text-2xl font-semibold uppercase">Past Events</h1>
 
           <EventCard
             title="Emergent Conference 2025"
@@ -63,7 +160,6 @@ export default function Home() {
                 competed for <b>$10,000 in prizes</b> by developing and pitching
                 AI-enabled startup ideas.
               </p>
-              // TODO: add impact - hiring, etc.
             }
             images={[
               imgKeynote,
@@ -97,9 +193,7 @@ export default function Home() {
             featuredEvent={true}
           />
 
-          <div className="my-4 flex justify-center">
-            <div className="w-8 h-0.5 my-2 bg-gray-800" />
-          </div>
+          <Separator />
 
           <EventCard
             title="Venture Capital Panel & Office Hours"
@@ -241,6 +335,45 @@ export default function Home() {
             </details>
           ))}
         </section>
+
+        {/* Footer */}
+        <footer className="space-y-4 border-t-2">
+          <h1 className="mt-4 text-xl font-semibold uppercase">
+            More of Emergent...
+          </h1>
+          {(() => {
+            const links = [
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/company/emergent-con/",
+              },
+              {
+                label: "Instagram",
+                href: "https://www.instagram.com/emergentconference/",
+              },
+              {
+                label: "Email",
+                href: "mailto:info@emergentaiconference.com",
+              },
+            ];
+            return (
+              <ul className="list-disc list-outside pl-8">
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-blue-600"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            );
+          })()}
+        </footer>
       </div>
     </div>
   );
