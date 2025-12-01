@@ -3,6 +3,17 @@ import imgKeynote from "@/public/events/conf2025/keynote.jpg";
 import imgNetworking from "@/public/events/conf2025/networking.jpg";
 import imgPanelAudience from "@/public/events/conf2025/panel_audience.jpg";
 import imgPanelSpeakers from "@/public/events/conf2025/panel_speakers.jpg";
+import imgEtched from "@/public/events/etched/etched.jpg";
+import imgEtchedThankYou from "@/public/events/etched/thank_you.jpg";
+import imgPearAudience from "@/public/events/pearvc/audience.jpg";
+import imgPearGroup from "@/public/events/pearvc/group.jpg";
+import imgPearNetworking from "@/public/events/pearvc/networking.jpg";
+import imgPearPres from "@/public/events/pearvc/pres.jpg";
+import imgVcAudience from "@/public/events/vcpanel/audience.jpeg";
+import imgVcAudience2 from "@/public/events/vcpanel/audience2.jpeg";
+import imgVcNetworking from "@/public/events/vcpanel/networking.jpeg";
+import imgVcNetworking2 from "@/public/events/vcpanel/networking2.jpeg";
+import imgVcPanel from "@/public/events/vcpanel/panel.jpeg";
 import logoWordmark from "@/public/logo-wordmark.png";
 import Image from "next/image";
 import { EventCard } from "./components/EventCard";
@@ -52,6 +63,7 @@ export default function Home() {
                 competed for <b>$10,000 in prizes</b> by developing and pitching
                 AI-enabled startup ideas.
               </p>
+              // TODO: add impact - hiring, etc.
             }
             images={[
               imgKeynote,
@@ -83,6 +95,108 @@ export default function Home() {
               { name: "Nelson Center", src: "/logos/nelson.png" },
             ]}
             featuredEvent={true}
+          />
+
+          <div className="my-4 flex justify-center">
+            <div className="w-8 h-0.5 my-2 bg-gray-800" />
+          </div>
+
+          <EventCard
+            title="Venture Capital Panel & Office Hours"
+            date="November 13, 2025"
+            description={
+              <>
+                <p>
+                  Emergent hosted a VC panel around <b>careers</b> and the{" "}
+                  <b>current state of venture capital</b>, in collaboration with
+                  Brown&rsquo;s Nelson Center for Entrepreneurship. The panel
+                  also discussed various approaches to leveraging <b>AI</b> in
+                  the venture industry, as well as how individual VCs make
+                  investments and differentiate themselves.
+                </p>
+                <p>
+                  After the panel, Emergent teamed up with Adam Fikry, partner
+                  at <b>Genesis Fund</b>, to host <b>office hours</b> for 10
+                  student-run startups at Brown.
+                </p>
+              </>
+            }
+            images={[
+              imgVcPanel,
+              imgVcAudience,
+              imgVcNetworking,
+              imgVcAudience2,
+              imgVcNetworking2,
+            ]}
+            speakers={[
+              {
+                name: "Genesis Fund",
+                src: "/logos/genesis_fund.png",
+              },
+              {
+                name: "Shakti",
+                src: "/logos/shakti.png",
+              },
+              {
+                name: "Cherrystone Angel Group",
+                src: "/logos/cherrystone.png",
+              },
+              {
+                name: "Propeller Ventures",
+                src: "/logos/propeller_ventures.png",
+              },
+              {
+                name: "Clean Energy Venture Group",
+                src: "/logos/cevg.png",
+              },
+            ]}
+            featuredEvent={false}
+          />
+          <EventCard
+            title="Emergent x PearVC Info Session"
+            date="September 15, 2025"
+            description={
+              <>
+                <p>
+                  Emergent hosted <b>PearVC partner</b> Harris Stolzenberg for a
+                  talk, networking session, and 1:1 office hours on the inner
+                  workings of <b>venture capital</b> and the current state of AI
+                  startups. Harris also gave insights into Pear&rsquo;s startup
+                  accelerator program <b>PearX</b>, which provides funding,
+                  mentorship, and resources to early-stage startups.
+                </p>
+                <p>
+                  Hosted as a collaboration between Emergent and Pear venture
+                  fellow Everest Yang, this event drew over <b>80 attendees</b>:
+                  the largest group that PearVC addressed during its East Coast
+                  campus visits in 2025.
+                </p>
+              </>
+            }
+            images={[
+              imgPearGroup,
+              imgPearNetworking,
+              imgPearPres,
+              imgPearAudience,
+            ]}
+            speakers={[{ name: "Etched", src: "/logos/pearvc.png" }]}
+            featuredEvent={false}
+          />
+          <EventCard
+            title="Emergent x Etched Startup Talk"
+            date="May 5, 2025"
+            description={
+              <p>
+                Emergent hosted Carter Wilcox and Quinn McIntyre of Series A
+                hardware startup <b>Etched</b> for an <b>off-the-record talk</b>{" "}
+                on the future of AI, the next order-of-magnitude improvement in
+                chip performance, and how students can become involved with the
+                startup world.
+              </p>
+            }
+            images={[imgEtched, imgEtchedThankYou]}
+            speakers={[{ name: "Etched", src: "/logos/etched.png" }]}
+            featuredEvent={false}
           />
         </section>
 

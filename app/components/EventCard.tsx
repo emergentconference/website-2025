@@ -13,8 +13,8 @@ export interface EventCardProps {
   date: string;
   description: ReactNode;
   images: StaticImageData[];
-  speakers: Logo[];
-  sponsors: Logo[];
+  speakers?: Logo[];
+  sponsors?: Logo[];
   featuredEvent: boolean;
 }
 
@@ -70,11 +70,11 @@ export function EventCard({
 
   return (
     <div
-      className={`relative mt-2 rounded-sm bg-gray-100 overflow-hidden transition-all duration-300 border-2 ${
-        expanded || !featuredEvent
-          ? "border-gray-600 shadow-none"
-          : "border-emergent-pink shadow-[0_10px_30px_rgba(255,122,193,0.4)] cursor-pointer"
-      }`}
+      className={`relative mt-2 rounded-sm bg-gray-100 overflow-hidden transition-all duration-300 ${
+        featuredEvent
+          ? "border-2 border-emergent-pink  shadow-[0_10px_30px_rgba(255,122,193,0.4)]"
+          : "border border-gray-600"
+      } ${expanded ? "" : "cursor-pointer"}`}
       onClick={
         !expanded
           ? () => {
@@ -97,6 +97,11 @@ export function EventCard({
             : undefined
         }
       >
+        {featuredEvent && (
+          <p className="text-sm font-semibold text-emergent-pink uppercase tracking-wide mb-1.5">
+            Featured event
+          </p>
+        )}
         <h2 className="text-xl font-semibold tracking-tight mb-0">{title}</h2>
         <p className="text-sm text-gray-500">{date}</p>
       </div>
@@ -136,28 +141,30 @@ export function EventCard({
           </div>
 
           <div className="flex-1 space-y-3">
-            {(speakers.length > 0 || sponsors.length > 0) && (
+            {((speakers && speakers.length > 0) ||
+              (sponsors && sponsors.length > 0)) && (
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs text-gray-500">
                 <span className="uppercase tracking-wide">Speakers from</span>
                 <div className="flex flex-wrap items-center gap-2">
-                  {speakers.slice(0, 3).map((logo) => (
-                    <div
-                      key={`collapsed-${logo.name}`}
-                      className="h-5 flex items-center"
-                    >
-                      <Image
-                        src={logo.src}
-                        alt={logo.name}
-                        width={80}
-                        height={20}
-                        className="h-5 w-auto object-contain opacity-80"
-                      />
-                    </div>
-                  ))}
+                  {speakers &&
+                    speakers.slice(0, 3).map((logo) => (
+                      <div
+                        key={`collapsed-${logo.name}`}
+                        className="h-5 flex items-center"
+                      >
+                        <Image
+                          src={logo.src}
+                          alt={logo.name}
+                          width={80}
+                          height={20}
+                          className="h-5 w-auto object-contain opacity-80"
+                        />
+                      </div>
+                    ))}
+                  {speakers && speakers.length > 3 && (
+                    <span className="text-[11px] text-gray-400">+ more</span>
+                  )}
                 </div>
-                {speakers.length > 3 && (
-                  <span className="text-[11px] text-gray-400">+ more</span>
-                )}
               </div>
             )}
 
@@ -239,36 +246,47 @@ export function EventCard({
 
           <div className="mt-4 space-y-2">
             {/* Speakers */}
-            <h3 className="text-lg font-semibold">Featured speakers from...</h3>
-            <div className="border-l-3 border-gray-700 ml-0.5 pl-4 mb-6 grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-4 items-center">
-              {speakers.map((logo) => (
-                <div key={logo.name} className="flex justify-center">
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={200}
-                    height={80}
-                    className="h-8 sm:h-10 md:h-12 w-auto object-contain"
-                  />
+            {speakers && (
+              <>
+                <h3 className="text-lg font-semibold">
+                  Featured speakers from...
+                </h3>
+                <div className="border-l-3 border-gray-700 ml-0.5 pl-4 mb-6 grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-4 items-center">
+                  {speakers &&
+                    speakers.map((logo) => (
+                      <div key={logo.name} className="flex justify-center">
+                        <Image
+                          src={logo.src}
+                          alt={logo.name}
+                          width={200}
+                          height={80}
+                          className="h-8 sm:h-10 md:h-12 w-auto object-contain"
+                        />
+                      </div>
+                    ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
 
             {/* Sponsors */}
-            <h3 className="text-lg font-semibold">Featured sponsors...</h3>
-            <div className="border-l-3 border-gray-700 ml-0.5 pl-4 mb-6 grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-4 items-center">
-              {sponsors.map((logo) => (
-                <div key={logo.name} className="flex justify-center">
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={200}
-                    height={80}
-                    className="h-6 sm:h-8 w-auto object-contain"
-                  />
+            {sponsors && (
+              <>
+                <h3 className="text-lg font-semibold">Featured sponsors...</h3>
+                <div className="border-l-3 border-gray-700 ml-0.5 pl-4 mb-6 grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-4 items-center">
+                  {sponsors.map((logo) => (
+                    <div key={logo.name} className="flex justify-center">
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={200}
+                        height={80}
+                        className="h-6 sm:h-8 w-auto object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
           </div>
 
           <button
