@@ -48,7 +48,7 @@ export default function Home() {
           {(() => {
             const impactData = [
               {
-                number: "500+",
+                number: "300+",
                 description: "Attendees from Brown and beyond",
               },
               {
