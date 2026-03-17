@@ -18,11 +18,13 @@ import logoWordmark from "@/public/logo-wordmark.png";
 import Image from "next/image";
 import { EventCard } from "./components/EventCard";
 import { Separator } from "./components/Separator";
+import { InterestFormPopup } from "./components/InterestFormPopup";
 import { teamMembers } from "./data/members";
 
 export default function Home() {
   return (
     <div className="bg-[url('/gradient2.jpg')] bg-cover bg-center px-6 py-12 min-h-screen">
+      <InterestFormPopup />
       <div className="space-y-12 mx-auto max-w-2xl border-black relative">
         {/* About */}
         <section className="space-y-4 border-t-4">
