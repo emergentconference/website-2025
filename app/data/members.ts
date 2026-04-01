@@ -13,10 +13,6 @@ export const teamMembers: YearTeam[] = [
     year: "2025–26",
     members: [
       {
-        name: "Amil Agrawal",
-        image: "/team/amil.jpg",
-      },
-      {
         name: "Karsten Assoua",
         image: "/team/karsten.jpg",
       },
@@ -25,8 +21,8 @@ export const teamMembers: YearTeam[] = [
         image: "/team/hadley.jpg",
       },
       {
-        name: "Lara Gamaleldin",
-        image: "/team/lara.jpg",
+        name: " Rishi Gottimukkala",
+        image: "/team/rishi.jpg",
       },
       {
         name: "Akshay Irudayaraj",
@@ -61,6 +57,14 @@ export const teamMembers: YearTeam[] = [
   {
     year: "Emergent Alums",
     members: [
+      {
+        name: "Amil Agrawal",
+        image: "/team/amil.jpg",
+      },
+      {
+        name: "Lara Gamaleldin",
+        image: "/team/lara.jpg",
+      },
       {
         name: "Lindsay Gould",
         image: "/team/lindsay.jpg",
