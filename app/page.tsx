@@ -32,7 +32,13 @@ export default function Home() {
       <div className="space-y-12 mx-auto max-w-2xl border-black relative">
         {/* About */}
         <section className="space-y-4 border-t-4">
-          <Image src={logoWordmark} alt="Emergent" className="mt-4 w-80" />
+          <Image
+            src={logoWordmark}
+            alt="Emergent"
+            priority
+            className="mt-4 w-80"
+            style={{ height: "auto" }}
+          />
           <p>
             Emergent is a student-run collective at Brown University that{" "}
             <b>empowers the next generation of tech entrepreneurs</b> by
