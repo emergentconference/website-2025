@@ -1,3 +1,5 @@
+import imgArtNetworking from "@/public/events/artpanel/networking.jpg";
+import imgArtRoom from "@/public/events/artpanel/room.jpeg";
 import imgDisruptPrize from "@/public/events/conf2025/disrupt_prize.jpg";
 import imgKeynote from "@/public/events/conf2025/keynote.jpg";
 import imgNetworking from "@/public/events/conf2025/networking.jpg";
@@ -5,6 +7,8 @@ import imgPanelAudience from "@/public/events/conf2025/panel_audience.jpg";
 import imgPanelSpeakers from "@/public/events/conf2025/panel_speakers.jpg";
 import imgEtched from "@/public/events/etched/etched.jpg";
 import imgEtchedThankYou from "@/public/events/etched/thank_you.jpg";
+import imgLawPanel from "@/public/events/lawpanel/panel.jpg";
+import imgLawRoom from "@/public/events/lawpanel/room.jpg";
 import imgPearAudience from "@/public/events/pearvc/audience.jpg";
 import imgPearGroup from "@/public/events/pearvc/group.jpg";
 import imgPearNetworking from "@/public/events/pearvc/networking.jpg";
@@ -17,8 +21,8 @@ import imgVcPanel from "@/public/events/vcpanel/panel.jpeg";
 import logoWordmark from "@/public/logo-wordmark.png";
 import Image from "next/image";
 import { EventCard } from "./components/EventCard";
-import { Separator } from "./components/Separator";
 import { InterestFormPopup } from "./components/InterestFormPopup";
+import { Separator } from "./components/Separator";
 import { teamMembers } from "./data/members";
 
 export default function Home() {
@@ -197,6 +201,74 @@ export default function Home() {
 
           <Separator />
 
+          <EventCard
+            title="AI & Law Panel"
+            date="February 4, 2026"
+            description={
+              <p>
+                Emergent hosted a panel around the intersection of <b>AI and law</b>. The panel discussed the <b>current state of AI</b> in the legal industry, and the roles humanities and law students can play in the AI space.
+              </p>
+            }
+            images={[
+              imgLawPanel,
+              imgLawRoom,
+            ]}
+            speakers={[
+              {
+                name: "Crosby",
+                src: "/logos/crosby.png",
+              },
+              {
+                name: "Amazon",
+                src: "/logos/amazon.png",
+              },
+              {
+                name: "PointOne",
+                src: "/logos/pointone.png",
+              },
+              {
+                name: "Commonwealth of Massachusetts",
+                src: "/logos/massachusetts.png",
+              },
+              {
+                name: "Sullivan and Cromwell",
+                src: "/logos/sullivanandcromwell.jpg",
+              },
+            ]}
+            featuredEvent={false}
+          />
+          <EventCard
+            title="AI & Art Panel"
+            date="February 2, 2026"
+            description={
+              <p>
+                Emergent hosted a panel around the intersection of <b>AI and art</b>. The panel showcase a variety of perspectives that illustrate the <b>industry&apos;s current thoughts</b> on creativity in the age of AI, and introduced humanities and non-technical students to the roles they can play in startups.
+              </p>
+            }
+            images={[
+              imgArtRoom,
+              imgArtNetworking,
+            ]}
+            speakers={[
+              {
+                name: "Character.ai",
+                src: "/logos/character.jpg",
+              },
+              {
+                name: "Suno",
+                src: "/logos/suno.jpg",
+              },
+              {
+                name: "Nickelodeon",
+                src: "/logos/nickelodeon.png",
+              },
+              {
+                name: "Rhode Island School of Design",
+                src: "/logos/risd.png",
+              },
+            ]}
+            featuredEvent={false}
+          />
           <EventCard
             title="Venture Capital Panel & Office Hours"
             date="November 13, 2025"
