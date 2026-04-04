@@ -41,7 +41,7 @@ export default function Home() {
           />
           <p>
             Emergent is a student-run collective at Brown University that{" "}
-            <b>empowers the next generation of tech entrepreneurs</b> by
+            <b>empowers the next generation of tech entrepreneurs</b>{" "}by
             connecting them with the people building today&rsquo;s most
             innovative technologies.
           </p>
